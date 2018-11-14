@@ -34,7 +34,7 @@ export async function fakeChartData() {
 ### Use bash
 
 ```bash
-$ git clone http://10.161.66.178/liyy/data-analysis.git data-analysis
+$ git clone https://github.com/xiashei/data-analysis.git data-analysis
 $ cd data-analysis
 $ npm install
 $ npm start         # visit http://localhost:8000
