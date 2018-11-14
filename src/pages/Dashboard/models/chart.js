@@ -22,7 +22,7 @@ export default {
       const response = yield call(fakeChartData);
       yield put({
         type: 'save',
-        payload: response,
+        payload: {offlineChartData:response},
       });
     },
     *fetchSalesData(_, { call, put }) {

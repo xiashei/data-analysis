@@ -43,7 +43,7 @@ class TimelineChart extends React.Component {
         end: data[0]?data[data.length - 1].x:0
       },
     });
-    console.log(ds);
+    // console.log(ds);
     const dv = ds.createView();
     dv.source(data)
       .transform({
