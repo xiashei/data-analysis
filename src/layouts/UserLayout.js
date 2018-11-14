@@ -26,7 +26,7 @@ const links = [
 
 const copyright = (
   <Fragment>
-    Copyright <Icon type="copyright" /> 联通软研院计费结算中心
+    Copyright <Icon type="copyright" /> 联通软研院公众研发事业部
   </Fragment>
 );
 
@@ -52,10 +52,10 @@ class UserLayout extends React.PureComponent {
             <div className={styles.header}>
               <Link to="/">
                 <img alt="logo" className={styles.logo} src={logo} />
-                <span className={styles.title}>Spark共享平台</span>
+                <span className={styles.title}>数据分心中心</span>
               </Link>
             </div>
-            <div className={styles.desc}>致力于打造最完备的共享平台</div>
+            <div className={styles.desc}>致力于打造最完备的数据分析</div>
           </div>
           {children}
         </div>

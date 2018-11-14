@@ -9,14 +9,14 @@ const FooterView = () => (
       links={[
         {
           key: 'Ant Design',
-          title: 'Spark共享平台',
+          title: '数据分析中心',
 
           blankTarget: true,
         },
       ]}
       copyright={
         <Fragment>
-          Copyright <Icon type="copyright" /> 联通软研院计费结算中心
+          Copyright <Icon type="copyright" /> 联通软研院公众研发事业部
         </Fragment>
       }
     />

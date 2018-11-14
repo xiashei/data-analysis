@@ -177,10 +177,10 @@ class BasicLayout extends React.PureComponent {
     const currRouterData = this.matchParamsPath(pathname);
 
     if (!currRouterData) {
-      return 'Spark共享平台';
+      return '数据分析中心';
     }
 
-    return `${currRouterData.name} - Spark共享平台`;
+    return `${currRouterData.name} - 数据分析中心`;
   };
 
   getLayoutStyle = () => {

@@ -17,108 +17,21 @@ export default [
     Routes: ['src/pages/Authorized'],
     authority: ['admin', 'user'],
     routes: [
-      // dashboard
-      // { path: '/', redirect: '/dashboard/analysis' },
-      // {
-      //   path: '/dashboard',
-      //   name: 'dashboard',
-      //   icon: 'dashboard',
-      //   routes: [
-      //     {
-      //       path: '/dashboard/analysis',
-      //       name: 'analysis',
-      //       component: './Dashboard/Analysis',
-      //     },
-      //     {
-      //       path: '/dashboard/monitor',
-      //       name: 'monitor',
-      //       component: './Dashboard/Monitor',
-      //     },
-      //     {
-      //       path: '/dashboard/workplace',
-      //       name: 'workplace',
-      //       component: './Dashboard/Workplace',
-      //
-      //     },
-      //   ],
-      // },
-      { path: '/', redirect: '/spark/spark-cluster' },
-      // spark
+
+      { path: '/', redirect: '/dashboard/analysis' },
       {
-        path: '/spark',
-        icon: 'dashboard',
-        name: 'Spark',
-        authority: ['admin'],
+        path: '/dashboard',
+        name: '数据分析',
+        icon: 'line-chart',
         routes: [
           {
-            path: 'spark-cluster',
-            name: 'Spark集群',
-            component: './Spark/SParkCluster',
-          },
-          {
-            path: 'spark-IBM',
-            name: 'SparkIBM',
-            component: './Spark/SparkIBM',
-          },
-        ],
-      },
-      //alluxio监控
-      {
-        path: '/alluxio',
-        icon: 'dashboard',
-        name: 'Alluxio',
-        authority: ['admin'],
-        routes: [
-          {
-            path: 'alluxio-monitor',
-            name: 'Alluxio监控',
-            component: './Alluxio/AlluxioMonitor',
-          },
-          {
-            path: 'alluxio-content',
-            name: 'Alluxio内容',
-            component: './Alluxio/TableList',
+            path: '/dashboard/analysis',
+            name: '数据分析',
+            component: './Dashboard/Analysis',
           },
         ],
       },
 
-      // ETL监控
-      {
-        path: '/etl',
-        icon: 'dashboard',
-        name: 'ETL',
-        authority: ['admin'],
-        routes: [
-          {
-            path: 'DayTable',
-            name: '日表监控',
-            component: './ETL/DayTable',
-          },
-          {
-            path: 'NPMonthTable',
-            name: '不分省月表',
-            component: './ETL/NPMonthTable',
-          },{
-            path: 'PMonthTable',
-            name: '分省月表',
-            component: './ETL/PMonthTable',
-          },
-        ],
-      },
-      // 分摊
-      {
-        path:'/apportion',
-        icon:'dashboard',
-        name:'分摊',
-        authority:['admin'],
-        routes:[
-          {
-            path:'DataCheck',
-            name:"数据核对",
-            component:"./Apportion/DataCheck"
-          }
-        ]
-      },
       // forms
       // {
       //   path: '/form',

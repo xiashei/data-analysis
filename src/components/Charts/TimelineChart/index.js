@@ -37,12 +37,13 @@ class TimelineChart extends React.Component {
     }
 
     const ds = new DataSet({
+
       state: {
-        start: data[0].x,
-        end: data[data.length - 1].x,
+        start: data[0]?data[0].x:0,
+        end: data[0]?data[data.length - 1].x:0
       },
     });
-
+    console.log(ds);
     const dv = ds.createView();
     dv.source(data)
       .transform({
@@ -69,10 +70,10 @@ class TimelineChart extends React.Component {
       });
 
     const timeScale = {
-      type: 'time',
-      tickInterval: 60 * 60 * 1000,
-      mask: 'HH:mm',
-      range: [0, 1],
+      type: 'linear',
+      // tickInterval: 60 * 60 * 1000,
+      // mask: 'YYYY',
+      // range: [0, 1],
     };
 
     const cols = {
