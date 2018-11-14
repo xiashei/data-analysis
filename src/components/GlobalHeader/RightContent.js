@@ -73,20 +73,15 @@ export default class GlobalHeaderRight extends PureComponent {
     }
     return (
       <div className={className}>
-        {currentUser.name ? (
-            <span className={`${styles.action} ${styles.account}`}>
-              <Avatar
-                size="small"
-                className={styles.avatar}
-                src={currentUser.avatar}
-                alt="avatar"
-              />
-              <span className={styles.name}>朱琨</span>
-            </span>
-
-        ) : (
-          <Spin size="small" style={{ marginLeft: 8, marginRight: 8 }} />
-        )}
+        <span className={`${styles.action} ${styles.account}`}>
+          <Avatar
+            size="small"
+            className={styles.avatar}
+            src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png"
+            alt="avatar"
+          />
+          <span className={styles.name}>朱琨</span>
+        </span>
       </div>
     );
   }
