@@ -125,12 +125,22 @@ for (let i = 0; i < 10; i += 1) {
 const offlineChartData = [];
 for (let i = 0; i < 20; i += 1) {
   offlineChartData.push({
-    x: 2000+i,
-    y1: Math.floor(Math.random() * 100) + 10,
+    x: (2000 + i).toString(),
+    y1: Math.random() * 100,
+    F: Math.random() * 100,
+    M: Math.random() * 100,
     // y2: Math.floor(Math.random() * 100) + 10,
   });
 }
 
+const productUser = [
+  { company: 'Tencent', type: '大王卡', value: 15000000 },
+  { company: 'Tencent', type: '天王卡', value: 10000000 },
+  { company: 'Baidu', type: '强卡', value: 200000 },
+  { company: 'Baidu', type: 'sheng卡', value: 3453124 },
+  { company: 'Alibaba', type: 'fw卡', value: 312543 },
+  { company: 'Alibaba', type: 'wef2卡', value: 3451254 },
+];
 const radarOriginData = [
   {
     name: '个人',
@@ -178,9 +188,7 @@ radarOriginData.forEach(item => {
   });
 });
 
-const getFakeChartData = offlineChartData
-
-;
+const getFakeChartData = { offlineChartData, productUser };
 
 export default {
   'GET /api/fake_chart_data': getFakeChartData,

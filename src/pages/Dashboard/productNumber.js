@@ -48,9 +48,6 @@ import { getTimeDistance } from '@/utils/utils';
 
 import styles from './Analysis.less';
 
-const { TabPane } = Tabs;
-const { RangePicker } = DatePicker;
-
 const rankingListData = [];
 for (let i = 0; i < 7; i += 1) {
   rankingListData.push({
@@ -63,7 +60,7 @@ for (let i = 0; i < 7; i += 1) {
   chart,
   loading: loading.effects['chart/fetch'],
 }))
-class Analysis extends Component {
+class productNumber extends Component {
   constructor(props) {
     super(props);
     this.rankingListData = [];
@@ -103,11 +100,11 @@ class Analysis extends Component {
   }
 
   render() {
-    const { loading: propsLoding, currentTabKey } = this.state;
+    const { loading: propsLoding } = this.state;
     const { chart, loading: stateLoading } = this.props;
     console.log(chart);
-    const { offlineChartData, productUser } = chart;
-    const loading = propsLoding || stateLoading;
+    const { productUser } = chart;
+
     const colorMap = {
       Tencent: G2.Global.colors[0],
       Baidu: G2.Global.colors[1],
@@ -128,12 +125,47 @@ class Analysis extends Component {
 
     return (
       <GridContent>
-        <Card title="用户话费分析" style={{ padding: '0 24px' }}>
-          <TimelineChart height={400} data={offlineChartData} adjust="dodge" />
+        <Card title="产品使用量分析">
+          <Chart height={500} data={productUser} padding={[60, 60, 120, 60]} scale={cols} forceFit>
+            <Tooltip />
+            <Axis name="company" />
+            <Axis
+              name="value"
+              label={{
+                formatter: value => {
+                  return (value / 10000).toFixed(0) + '万';
+                }, // 格式化坐标轴的显示
+              }}
+            />
+            <Legend />
+            <Geom
+              type="point"
+              position="company*value"
+              color={[
+                'company',
+                val => {
+                  return colorMap[val];
+                },
+              ]}
+              tooltip="company*value*type"
+              opacity={0.65}
+              shape="circle"
+              size={['value', [10, 60]]}
+              style={[
+                'company',
+                {
+                  lineWidth: 1,
+                  strokeOpacity: 1,
+                  fillOpacity: 0.3,
+                  opacity: 0.65,
+                },
+              ]}
+            />
+          </Chart>
         </Card>
       </GridContent>
     );
   }
 }
 
-export default Analysis;
+export default productNumber;

@@ -17,7 +17,6 @@ export default [
     Routes: ['src/pages/Authorized'],
     authority: ['admin', 'user'],
     routes: [
-
       { path: '/', redirect: '/dashboard/analysis' },
       {
         path: '/dashboard',
@@ -26,8 +25,13 @@ export default [
         routes: [
           {
             path: '/dashboard/analysis',
-            name: '数据分析',
+            name: '用户话费分析',
             component: './Dashboard/Analysis',
+          },
+          {
+            path: '/dashboard/product-number',
+            name: '产品使用量分析',
+            component: './Dashboard/productNumber',
           },
         ],
       },

@@ -14,6 +14,7 @@ export default {
     salesTypeDataOnline: [],
     salesTypeDataOffline: [],
     radarData: [],
+    productUser: [],
     loading: false,
   },
 
@@ -22,7 +23,7 @@ export default {
       const response = yield call(fakeChartData);
       yield put({
         type: 'save',
-        payload: {offlineChartData:response},
+        payload: response,
       });
     },
     *fetchSalesData(_, { call, put }) {

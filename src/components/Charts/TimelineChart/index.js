@@ -11,7 +11,7 @@ class TimelineChart extends React.Component {
     const {
       title,
       height = 400,
-      padding = [60, 20, 40, 40],
+      padding = [60, 80, 40, 80],
       titleMap = {
         y1: 'y1',
         y2: 'y2',
@@ -24,6 +24,7 @@ class TimelineChart extends React.Component {
           y2: 0,
         },
       ],
+      adjust,
     } = this.props;
 
     data.sort((a, b) => a.x - b.x);
@@ -37,37 +38,41 @@ class TimelineChart extends React.Component {
     }
 
     const ds = new DataSet({
-
       state: {
-        start: data[0]?data[0].x:0,
-        end: data[0]?data[data.length - 1].x:0
+        start: data[0] ? data[0].x : 0,
+        end: data[0] ? data[data.length - 1].x : 0,
       },
     });
     // console.log(ds);
     const dv = ds.createView();
-    dv.source(data)
-      .transform({
-        type: 'filter',
-        callback: obj => {
-          const date = obj.x;
-          return date <= ds.state.end && date >= ds.state.start;
-        },
-      })
-      .transform({
-        type: 'map',
-        callback(row) {
-          const newRow = { ...row };
-          newRow[titleMap.y1] = row.y1;
-          newRow[titleMap.y2] = row.y2;
-          return newRow;
-        },
-      })
-      .transform({
-        type: 'fold',
-        fields: [titleMap.y1, titleMap.y2], // 展开字段集
-        key: 'key', // key字段
-        value: 'value', // value字段
-      });
+    dv.source(data).transform({
+      type: 'fold',
+      fields: ['F', 'M'],
+      key: 'key',
+      value: 'value',
+    });
+    // .transform({
+    //   type: 'filter',
+    //   callback: obj => {
+    //     const date = obj.x;
+    //     return date <= ds.state.end && date >= ds.state.start;
+    //   },
+    // })
+    // .transform({
+    //   type: 'map',
+    //   callback(row) {
+    //     const newRow = { ...row };
+    //     newRow[titleMap.y1] = row.y1;
+    //     newRow[titleMap.y2] = row.y2;
+    //     return newRow;
+    //   },
+    // })
+    // .transform({
+    //   type: 'fold',
+    //   fields: [titleMap.y1, titleMap.y2], // 展开字段集
+    //   key: 'key', // key字段
+    //   value: 'value', // value字段
+    // });
 
     const timeScale = {
       type: 'linear',
@@ -77,7 +82,6 @@ class TimelineChart extends React.Component {
     };
 
     const cols = {
-      x: timeScale,
       value: {
         max,
         min: 0,
@@ -102,20 +106,30 @@ class TimelineChart extends React.Component {
         }}
       />
     );
-
     return (
       <div className={styles.timelineChart} style={{ height: height + 30 }}>
         <div>
-          {title && <h4>{title}</h4>}
           <Chart height={height} padding={padding} data={dv} scale={cols} forceFit>
             <Axis name="x" />
+            <Axis name="y1" />
             <Tooltip />
-            <Legend name="key" position="top" />
-            <Geom type="line" position="x*value" size={borderWidth} color="key" />
+            {/*<Legend name='y1' position="top" />*/}
+            <Legend position="top" />
+            <Geom
+              type="interval"
+              position="x*value"
+              color="key"
+              adjust={[
+                {
+                  type: adjust,
+                  marginRatio: 1 / 32,
+                },
+              ]}
+            />
+            <Geom type="line" position="x*y1" size={borderWidth} color="#fad248" />
+            <Geom type="point" position="x*y1" size={borderWidth} color="#fad248" />
           </Chart>
-          <div style={{ marginRight: -20 }}>
-            <SliderGen />
-          </div>
+          <div style={{ marginRight: -20 }}>{/*<SliderGen />*/}</div>
         </div>
       </div>
     );
