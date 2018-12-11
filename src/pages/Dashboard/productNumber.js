@@ -109,6 +109,9 @@ class productNumber extends Component {
       Tencent: G2.Global.colors[0],
       Baidu: G2.Global.colors[1],
       Alibaba: G2.Global.colors[2],
+      Didi: G2.Global.colors[3],
+      Jingdong: G2.Global.colors[4],
+      Zhaohang: G2.Global.colors[5],
     };
     const cols = {
       company: {
@@ -118,7 +121,11 @@ class productNumber extends Component {
         alias: '卡种',
       },
       value: {
+        type: 'log',
+        base: 10,
         alias: '使用量',
+        tickCount: 10,
+        min: 10000,
       },
     };
     console.log(productUser);

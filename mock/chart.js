@@ -134,12 +134,20 @@ for (let i = 0; i < 20; i += 1) {
 }
 
 const productUser = [
-  { company: 'Tencent', type: '大王卡', value: 15000000 },
-  { company: 'Tencent', type: '天王卡', value: 10000000 },
-  { company: 'Baidu', type: '强卡', value: 200000 },
-  { company: 'Baidu', type: 'sheng卡', value: 3453124 },
-  { company: 'Alibaba', type: 'fw卡', value: 312543 },
-  { company: 'Alibaba', type: 'wef2卡', value: 3451254 },
+  { company: 'Tencent', type: '\u817e\u8baf\u5929\u738b\u5361', value: 5344282 },
+  { company: 'Tencent', type: '\u817e\u8baf\u5927\u738b\u5361', value: 112173843 },
+  { company: 'Tencent', type: '\u817e\u8baf\u5730\u738b\u5361', value: 2 },
+  { company: 'Baidu', type: '\u767e\u5ea6\u8d85\u5723\u5361', value: 42835 },
+  { company: 'Baidu', type: '\u767e\u5ea6\u5927\u5723\u5361', value: 361024 },
+  { company: 'Baidu', type: '\u767e\u5ea6\u5c0f\u5723\u5361', value: 291791 },
+  { company: 'Alibaba', type: '\u8682\u8681\u5927\u5b9d\u5361', value: 2823752 },
+  { company: 'Didi', type: '\u6ef4\u6ef4\u5927\u738b\u5361', value: 243622 },
+  { company: 'Didi', type: '\u6ef4\u6ef4\u5c0f\u738b\u5361', value: 1607991 },
+  { company: 'Jingdong', type: '\u4eac\u4e1c\u5927\u5f3a\u5361', value: 37276 },
+  { company: 'Jingdong', type: '\u4eac\u4e1c\u5c0f\u5f3a\u5361', value: 71459 },
+  { company: 'Zhaohang', type: '\u62db\u884c\u5c0f\u62db\u5361', value: 84102 },
+  { company: 'Zhaohang', type: '\u62db\u884c\u5927\u62db\u5361', value: 24610 },
+  { company: 'Alibaba', type: '\u8682\u8681\u5c0f\u5b9d\u5361', value: 906937 },
 ];
 const radarOriginData = [
   {
